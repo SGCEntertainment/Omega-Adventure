@@ -23,7 +23,7 @@ jobs:
              
       - uses: vimtor/action-zip@v1
         with:
-            files: build/Android
+            files: build/StandaloneWindows64
             dest: project_folder/${{ secrets.APP_NAME }}.zip
             
       - uses: geekyeggo/delete-artifact@v1
