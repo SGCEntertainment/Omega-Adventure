@@ -6,16 +6,9 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  commitmsg: ${{ github.event.pull_request.head_commit.message }}
 
 jobs:
-
-  log-github-event-goodies:
-    name: "LOG Everything on GitHub Event"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Loggingggg
-        run: |
-          echo "${{toJSON(github.event)}}"
 
   Archiving:
     runs-on: ubuntu-latest
@@ -79,7 +72,7 @@ jobs:
         
       - name: get commit message
         run: |
-            echo Commit message = ${{ env.commitmsg }}
+          echo Commit MSG = $commitmsg
         
       - name: Create LFS file list
         run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
