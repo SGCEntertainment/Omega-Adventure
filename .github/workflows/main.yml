@@ -21,15 +21,17 @@ jobs:
           - uses: actions/download-artifact@v2
             with:
               name: build-StandaloneWindows64
-              path: ${{ github.workspace }}/build/StandaloneWindows64
+              path: build/StandaloneWindows64
 
           - name: send telegram message
             uses: appleboy/telegram-action@master
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
-              message: "сообщение хых"
-              #document: '${{ github.workspace }}/build/StandaloneWindows64/${{ secrets.APP_NAME }}.zip'
+              message: | 
+               ${{ github.actor }} created commit:
+               Commit message: ${{ github.event.commits[0].message }}
+              document: '${{ github.workspace }}/build/StandaloneWindows64.zip'
 
   buildWindows:
     name: Build for StandaloneWindows64
