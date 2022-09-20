@@ -54,13 +54,7 @@ jobs:
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
-              message: |
-                The ${{ github.event_name }} event triggered second step.
-                show the github varable ref: ${{ github.ref }}
-                show the github varable commit: ${{ github.sha }}
-                show the github varable ref: {{ commit.ref }}
-                show the github varable commit: {{ commit.sha }}
-                Commit Message: ${{ github.event.head_commit.message }}
+              message: 'Commit Message: ${{ github.event.head_commit.message }}'
               document: '${{ github.workspace }}/project_folder/${{ secrets.APP_NAME }}.zip'
 
   buildWindows:
