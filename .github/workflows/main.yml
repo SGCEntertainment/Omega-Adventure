@@ -13,7 +13,7 @@ jobs:
     name: "LOG Everything on GitHub Event"
     runs-on: ubuntu-latest
     steps:
-      - name: Logging
+      - name: Loggingggg
         run: |
           echo "${{toJSON(github.event)}}"
 
