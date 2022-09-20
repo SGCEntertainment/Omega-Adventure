@@ -28,8 +28,8 @@ jobs:
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
-              message: " "
-              document: '${{ github.workspace }}/build/StandaloneWindows64/${{ secrets.APP_NAME }}.zip'
+              message: "сообщение хых"
+              #document: '${{ github.workspace }}/build/StandaloneWindows64/${{ secrets.APP_NAME }}.zip'
 
   buildWindows:
     name: Build for StandaloneWindows64
