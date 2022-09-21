@@ -1,6 +1,13 @@
 name: Build project
 
-on: workflow_dispatch
+on: 
+ workflow_dispatch: 
+  inputs:
+    commit:
+      description: "last commit message"
+      required: true
+      default: ""
+      type: string
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
