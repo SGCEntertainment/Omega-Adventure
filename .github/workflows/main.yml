@@ -9,12 +9,6 @@ on:
       default: ""
       type: string
 
-env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-  commitmsg: ${{ github.event.inputs.commit }}
-
 jobs:
 
   Archiving:
@@ -62,8 +56,10 @@ jobs:
             with:
               to: ${{ secrets.TELEGRAM_ID }}
               token: ${{ secrets.TELEGRAM_TOKEN }}
-              message: 'Commit Message: ${{ github.event.head_commit.message }}'
-              document: '${{ github.workspace }}/project_folder/${{ secrets.APP_NAME }}.zip'
+              #message: 'Commit Message: ${{ github.event.inputs.commit }}'
+              message_file: |
+               'Commit Message: ${{ github.event.inputs.commit }}'
+               '${{ github.workspace }}/project_folder/${{ secrets.APP_NAME }}.zip'
 
   buildWindows:
     name: Build for StandaloneWindows64
